@@ -128,7 +128,7 @@ def save(outdir, scopes, outs):
         out = ""
         
         if scopes:
-            file = path + '/scope.txt'
+            file = path + '/inScope.txt'
             for scope in scopes:
                 with open(file, "a") as arc:
                     arc.write("{}\n".format(scope))
