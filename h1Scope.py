@@ -53,7 +53,6 @@ def req(url):
     except Exception as error:
         print("Request error...")
         err(error)
-        
 
 def javascript_parse(res, tempo):
     try:
@@ -144,8 +143,7 @@ def save(outdir, scopes, outs):
         err(error)
 
 def main():
-    size = len(sys.argv)
-    outputdir = ''
+    outputdir = None
     args = None
     opts = None
     tempo = 5
