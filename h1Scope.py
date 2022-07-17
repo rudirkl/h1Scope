@@ -75,16 +75,24 @@ def javascript_parse(res, tempo):
 
 def find_domains(soup):
     try:
-        html = BeautifulSoup(soup, features="lxml")
-        scopes = html.find_all("div", {"class":"negative-margin-24--left negative-margin-24--right"})[0]
-        #scopes = html.find("div", {"class":"Spacing-module_mb-spacing-md__-XCDd"})       
-        scopes = scopes.find_all("span", {"class":"spec-asset-identifier break-word"})
-        outs = html.find_all("div", {"class":"negative-margin-24--left negative-margin-24--right"})[1]
-        outs = outs.find_all("span", {"class":"spec-asset-identifier break-word"})
+        scopes = None
+        outs = None
         
-        inScope = []
-        outScope = []
-    
+        html = BeautifulSoup(soup, features="lxml")
+        
+        try:
+            scopes = html.find_all("div", {"class":"negative-margin-24--left negative-margin-24--right"})[0]
+            #scopes = html.find("div", {"class":"Spacing-module_mb-spacing-md__-XCDd"})       
+            scopes = scopes.find_all("span", {"class":"spec-asset-identifier break-word"})
+        except Exception:
+            pass
+        #print(scopes)
+        try:   
+            outs = html.find_all("div", {"class":"negative-margin-24--left negative-margin-24--right"})[1]
+            outs = outs.find_all("span", {"class":"spec-asset-identifier break-word"})
+        except Exception:
+            pass
+
         if scopes:
             print("...In Scope...")
             for scope in scopes:
@@ -105,7 +113,6 @@ def find_domains(soup):
         
         print(".....................")
 
-        return (scope, out)
     
     except:
         print("Error to find links...")
