@@ -1,13 +1,13 @@
     # Basic use: 
-    python hoScope.py <URL>
+    python h1Scope.py <URL>
     
     # Save in to a file: 
-    python hoScope.py <URL> -d <DIR>
+    python h1Scope.py <URL> -d <DIR>
 
     # Sometimes you will need increase the rendering time of the webpage
     # for the script to find the links, you can use -t to increase this time.
     # The pattern is 5 seconds
-    python hoScope.py <URL> -t 10
+    python h1Scope.py <URL> -t 10
 
     # If the option -d/--dir is set, the script will create inScope.txt and outScope.txt files.
 
